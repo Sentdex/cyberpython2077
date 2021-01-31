@@ -66,7 +66,7 @@ while True:
 
     else:
         screen = fg.grab()
-        screen = cv2.cvtColor(screen, cv2.COLOR_BGR2RGB) # because default will be BGR
+        screen = cv2.cvtColor(screen, cv2.COLOR_BGRA2RGB) # because default will be BGR
         minimap = screen[81:377, 2181:2469]
         miniminimap = screen[185:215, 2290:2358]
 
