@@ -1,4 +1,4 @@
-from grabscreen import grab_screen
+from framegrabber import FrameGrabber
 import cv2
 import numpy as np
 import time
@@ -47,6 +47,8 @@ for i in range(5):
     print(i)
     time.sleep(1)
 
+# Initialize screen grabber
+fg = FrameGrabber(0, 0, 2560, 1440, "Cyberpunk 2077 (C) 2020 by CD Projekt RED")
 
 keys.directKey("w")
 # run for just 100 frames.
@@ -63,7 +65,7 @@ while True:
         time.sleep(1)
 
     else:
-        screen = grab_screen(region=(1280, 0, 3840, 1440))  # region will vary depending on game resolution and monitor resolution
+        screen = fg.grab()
         screen = cv2.cvtColor(screen, cv2.COLOR_BGR2RGB) # because default will be BGR
         minimap = screen[81:377, 2181:2469]
         miniminimap = screen[185:215, 2290:2358]
